@@ -34,6 +34,8 @@ namespace WebApplicationCore.Controllers
         /// Gets all categories from supermarket. This method is protected for Admins only
         /// </summary>
         /// <returns>Lista de categorias</returns>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Error</response>
         [HttpGet]
         [Authorize(Roles = "Administrator")]
         public async Task<IEnumerable<CategoryResource>> GetAllAsync()
