@@ -41,6 +41,11 @@ namespace WebApplicationCore
 
             //dependency injection configuration
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
 
             services.AddAutoMapper();
