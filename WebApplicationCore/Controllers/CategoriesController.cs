@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationCore.Domain.Models;
@@ -12,6 +13,10 @@ using WebApplicationCore.Resource;
 
 namespace WebApplicationCore.Controllers
 {
+
+    /// <summary>
+    /// This will manage all categories
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -25,7 +30,12 @@ namespace WebApplicationCore.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Gets all categories from supermarket. This method is protected for Admins only
+        /// </summary>
+        /// <returns>Lista de categorias</returns>
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<IEnumerable<CategoryResource>> GetAllAsync()
         {
             var categories = await _categoryService.ListAsync();
