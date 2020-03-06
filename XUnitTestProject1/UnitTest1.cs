@@ -41,6 +41,7 @@ namespace XUnitTestProject1
 
             _unitOfWork = new Mock<IUnitOfWork>();
             _unitOfWork.Setup(u => u.CompleteAsync()).Returns(Task.CompletedTask);
+
         }
 
 
@@ -59,10 +60,10 @@ namespace XUnitTestProject1
         public async Task Should_Return_Null_When_Not_Found()
         {
             //act
-            var category = await _categoryService.FindByIdAsync(2);
+            var category = await _categoryService.FindByIdAsync(99);
 
             //assert
-            Assert.Null(category);
+            Assert.Null(category.Category);
 
         }
     }
