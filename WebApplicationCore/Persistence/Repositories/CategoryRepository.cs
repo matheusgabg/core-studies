@@ -27,8 +27,7 @@ namespace WebApplicationCore.Persistence.Repositories
 
         public async Task<Category> FindByIdAsync(int id)
         {
-            var querover = await _context.Categories.FindAsync(id);
-            return querover;
+            return await _context.Categories.FindAsync(id);
         }
 
         public void Update(Category category)
