@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationCore.Domain.Models;
@@ -25,6 +26,7 @@ namespace WebApplicationCore.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<ProductResource>> ListAsync()
         {
             var products = await _productService.ListAsync();

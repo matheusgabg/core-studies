@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WebApplicationCore.Domain.Security.Hashing;
 using WebApplicationCore.Persistence.Contexts;
 
 namespace WebApplicationCore
@@ -26,6 +27,9 @@ namespace WebApplicationCore
             using (var context = scope.ServiceProvider.GetService<AppDbContext>())
             {
                 context.Database.EnsureCreated();
+                var services = scope.ServiceProvider;
+                var passwordHasher = services.GetService<IPasswordHasher>();
+                DatabaseSeed.Seed(context, passwordHasher);
             }
 
             host.Run();
