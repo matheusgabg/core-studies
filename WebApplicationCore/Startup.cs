@@ -36,6 +36,8 @@ namespace WebApplicationCore
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
+            services.ConfigureCors();
+
             services.AddCustomSwagger();
 
             //configuring context
@@ -91,6 +93,8 @@ namespace WebApplicationCore
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 

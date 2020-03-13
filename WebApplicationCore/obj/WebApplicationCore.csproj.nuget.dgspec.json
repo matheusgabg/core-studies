@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\goncmat\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\goncmat\\source\\repos\\WebApplicationCore\\WebApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\goncmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

@@ -5,3 +5,5 @@
 *.lock
 .vs
 node_modules
+bin
+obj
